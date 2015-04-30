@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		194B7EA21AF1C6C50025F199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA11AF1C6C50025F199 /* main.m */; };
+		194B7EA51AF1C6C50025F199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA41AF1C6C50025F199 /* AppDelegate.m */; };
+		194B7EA81AF1C6C50025F199 /* GigMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */; };
+		194B7EAB1AF1C6C50025F199 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EAA1AF1C6C50025F199 /* ViewController.m */; };
+		194B7EAE1AF1C6C50025F199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194B7EAC1AF1C6C50025F199 /* Main.storyboard */; };
+		194B7EB01AF1C6C50025F199 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 194B7EAF1AF1C6C50025F199 /* Images.xcassets */; };
+		194B7EB31AF1C6C50025F199 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194B7EB11AF1C6C50025F199 /* LaunchScreen.xib */; };
+		194B7EBF1AF1C6C50025F199 /* GigMateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EBE1AF1C6C50025F199 /* GigMateTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		194B7EB91AF1C6C50025F199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 194B7E941AF1C6C40025F199 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 194B7E9B1AF1C6C50025F199;
+			remoteInfo = GigMate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		194B7E9C1AF1C6C50025F199 /* GigMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		194B7EA01AF1C6C50025F199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		194B7EA11AF1C6C50025F199 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		194B7EA31AF1C6C50025F199 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		194B7EA41AF1C6C50025F199 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		194B7EA71AF1C6C50025F199 /* GigMate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigMate.xcdatamodel; sourceTree = "<group>"; };
+		194B7EA91AF1C6C50025F199 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		194B7EAA1AF1C6C50025F199 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		194B7EAD1AF1C6C50025F199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		194B7EAF1AF1C6C50025F199 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		194B7EB21AF1C6C50025F199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		194B7EB81AF1C6C50025F199 /* GigMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		194B7EBD1AF1C6C50025F199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		194B7EBE1AF1C6C50025F199 /* GigMateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigMateTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		194B7E991AF1C6C50025F199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		194B7EB51AF1C6C50025F199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		194B7E931AF1C6C40025F199 = {
+			isa = PBXGroup;
+			children = (
+				194B7E9E1AF1C6C50025F199 /* GigMate */,
+				194B7EBB1AF1C6C50025F199 /* GigMateTests */,
+				194B7E9D1AF1C6C50025F199 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		194B7E9D1AF1C6C50025F199 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				194B7E9C1AF1C6C50025F199 /* GigMate.app */,
+				194B7EB81AF1C6C50025F199 /* GigMateTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		194B7E9E1AF1C6C50025F199 /* GigMate */ = {
+			isa = PBXGroup;
+			children = (
+				194B7EA31AF1C6C50025F199 /* AppDelegate.h */,
+				194B7EA41AF1C6C50025F199 /* AppDelegate.m */,
+				194B7EA91AF1C6C50025F199 /* ViewController.h */,
+				194B7EAA1AF1C6C50025F199 /* ViewController.m */,
+				194B7EAC1AF1C6C50025F199 /* Main.storyboard */,
+				194B7EAF1AF1C6C50025F199 /* Images.xcassets */,
+				194B7EB11AF1C6C50025F199 /* LaunchScreen.xib */,
+				194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */,
+				194B7E9F1AF1C6C50025F199 /* Supporting Files */,
+			);
+			path = GigMate;
+			sourceTree = "<group>";
+		};
+		194B7E9F1AF1C6C50025F199 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				194B7EA01AF1C6C50025F199 /* Info.plist */,
+				194B7EA11AF1C6C50025F199 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		194B7EBB1AF1C6C50025F199 /* GigMateTests */ = {
+			isa = PBXGroup;
+			children = (
+				194B7EBE1AF1C6C50025F199 /* GigMateTests.m */,
+				194B7EBC1AF1C6C50025F199 /* Supporting Files */,
+			);
+			path = GigMateTests;
+			sourceTree = "<group>";
+		};
+		194B7EBC1AF1C6C50025F199 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				194B7EBD1AF1C6C50025F199 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		194B7E9B1AF1C6C50025F199 /* GigMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 194B7EC21AF1C6C50025F199 /* Build configuration list for PBXNativeTarget "GigMate" */;
+			buildPhases = (
+				194B7E981AF1C6C50025F199 /* Sources */,
+				194B7E991AF1C6C50025F199 /* Frameworks */,
+				194B7E9A1AF1C6C50025F199 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GigMate;
+			productName = GigMate;
+			productReference = 194B7E9C1AF1C6C50025F199 /* GigMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		194B7EB71AF1C6C50025F199 /* GigMateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 194B7EC51AF1C6C50025F199 /* Build configuration list for PBXNativeTarget "GigMateTests" */;
+			buildPhases = (
+				194B7EB41AF1C6C50025F199 /* Sources */,
+				194B7EB51AF1C6C50025F199 /* Frameworks */,
+				194B7EB61AF1C6C50025F199 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				194B7EBA1AF1C6C50025F199 /* PBXTargetDependency */,
+			);
+			name = GigMateTests;
+			productName = GigMateTests;
+			productReference = 194B7EB81AF1C6C50025F199 /* GigMateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		194B7E941AF1C6C40025F199 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = TDesigns;
+				TargetAttributes = {
+					194B7E9B1AF1C6C50025F199 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					194B7EB71AF1C6C50025F199 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 194B7E9B1AF1C6C50025F199;
+					};
+				};
+			};
+			buildConfigurationList = 194B7E971AF1C6C40025F199 /* Build configuration list for PBXProject "GigMate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 194B7E931AF1C6C40025F199;
+			productRefGroup = 194B7E9D1AF1C6C50025F199 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				194B7E9B1AF1C6C50025F199 /* GigMate */,
+				194B7EB71AF1C6C50025F199 /* GigMateTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		194B7E9A1AF1C6C50025F199 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				194B7EAE1AF1C6C50025F199 /* Main.storyboard in Resources */,
+				194B7EB31AF1C6C50025F199 /* LaunchScreen.xib in Resources */,
+				194B7EB01AF1C6C50025F199 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		194B7EB61AF1C6C50025F199 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		194B7E981AF1C6C50025F199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				194B7EA51AF1C6C50025F199 /* AppDelegate.m in Sources */,
+				194B7EA21AF1C6C50025F199 /* main.m in Sources */,
+				194B7EAB1AF1C6C50025F199 /* ViewController.m in Sources */,
+				194B7EA81AF1C6C50025F199 /* GigMate.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		194B7EB41AF1C6C50025F199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				194B7EBF1AF1C6C50025F199 /* GigMateTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		194B7EBA1AF1C6C50025F199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 194B7E9B1AF1C6C50025F199 /* GigMate */;
+			targetProxy = 194B7EB91AF1C6C50025F199 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		194B7EAC1AF1C6C50025F199 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				194B7EAD1AF1C6C50025F199 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		194B7EB11AF1C6C50025F199 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				194B7EB21AF1C6C50025F199 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		194B7EC01AF1C6C50025F199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		194B7EC11AF1C6C50025F199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		194B7EC31AF1C6C50025F199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GigMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		194B7EC41AF1C6C50025F199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GigMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		194B7EC61AF1C6C50025F199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GigMateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GigMate.app/GigMate";
+			};
+			name = Debug;
+		};
+		194B7EC71AF1C6C50025F199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GigMateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GigMate.app/GigMate";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		194B7E971AF1C6C40025F199 /* Build configuration list for PBXProject "GigMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194B7EC01AF1C6C50025F199 /* Debug */,
+				194B7EC11AF1C6C50025F199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		194B7EC21AF1C6C50025F199 /* Build configuration list for PBXNativeTarget "GigMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194B7EC31AF1C6C50025F199 /* Debug */,
+				194B7EC41AF1C6C50025F199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		194B7EC51AF1C6C50025F199 /* Build configuration list for PBXNativeTarget "GigMateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194B7EC61AF1C6C50025F199 /* Debug */,
+				194B7EC71AF1C6C50025F199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				194B7EA71AF1C6C50025F199 /* GigMate.xcdatamodel */,
+			);
+			currentVersion = 194B7EA71AF1C6C50025F199 /* GigMate.xcdatamodel */;
+			path = GigMate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 194B7E941AF1C6C40025F199 /* Project object */;
+}
