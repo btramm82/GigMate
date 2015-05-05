@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "SetList.h"
+#import "SetListTableViewController.h"
+#import "Song.h"
 
-@interface AddSetViewController : UIViewController
+@interface AddSetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) SetList *setLists;
 @property (weak, nonatomic) IBOutlet UITextField *setName;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)addSongToSet:(id)sender;
+- (IBAction)saveSet:(id)sender;
 
 @end

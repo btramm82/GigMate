@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Song.h"
+#import "AddSongViewController.h"
 
-@interface SongsViewController : UIViewController
+
+
+@interface SongsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)segmentedControll:(id)sender;
 
 @end

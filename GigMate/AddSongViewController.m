@@ -13,25 +13,74 @@
 @end
 
 @implementation AddSongViewController
+@synthesize managedObjectContext;
+@synthesize fetchedResultsController;
+
+#pragma mark - Core Data
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)saveSong:(id)sender {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"songName" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Song" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+
+    NSLog(@"saveSongInformation");
+    NSError *error = nil;
+    if (self.songName.text !=nil) {
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"songName  contains[cd] %@", self.songName.text];
+        [fetchedResultsController.fetchRequest setPredicate:predicate];
+    }
+        if (![[self fetchedResultsController] performFetch:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            exit(-1);  // Fail
+        }
+            if ([fetchedResultsController.fetchedObjects count] < 1) {
+                NSLog(@"Found that Artist already in Core Data");
+                NSManagedObjectContext *context = [self managedObjectContext];
+                NSManagedObject *newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
+                [newSong setValue:self.songName.text forKey:@"songName"];
+                [newSong setValue:self.artistName.text forKey:@"artistName"];
+                [newSong setValue:self.bpm.text forKey:@"bpm"];
+                [newSong setValue:self.songNotes.text forKey:@"notes"];
+           
+                if (![context save:&error]) {
+                NSLog(@"Problem saving: %@", [error localizedDescription]);
+                }
+            } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:@"That Artist already exists" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *info in fetchedObjects) {
+        NSLog(@"Song Name: %@", [info valueForKey:@"songName"]);
+        NSLog(@"Artist Name: %@", [info valueForKey:@"artistName"]);
+        NSLog(@"Song BPM: %@", [info valueForKey:@"bpm"]);
+    }
 }
 
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"unwindToSongViewController"])
+        [self saveSong:nil];
 }
-*/
 
 @end

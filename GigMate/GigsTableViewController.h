@@ -11,6 +11,6 @@
 #import "AppDelegate.h"
 #import "AddGigViewController.h"
 
-@interface GigsTableViewController : UITableViewController
+@interface GigsTableViewController : UITableViewController <UINavigationControllerDelegate, UITabBarControllerDelegate>
 
 @end

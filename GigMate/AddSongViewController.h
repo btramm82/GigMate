@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Song.h"
+#import "SetList.h"
 
-@interface AddSongViewController : UIViewController
+@interface AddSongViewController : UIViewController <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *songName;
 @property (weak, nonatomic) IBOutlet UITextField *artistName;
 @property (weak, nonatomic) IBOutlet UITextField *bpm;
 @property (weak, nonatomic) IBOutlet UITextView *songNotes;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+
+
+- (IBAction)saveSong:(id)sender;
 
 @end

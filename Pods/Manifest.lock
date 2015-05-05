@@ -1,0 +1,10 @@
+PODS:
+  - CGLAlphabetizer (0.2.0)
+
+DEPENDENCIES:
+  - CGLAlphabetizer (~> 0.1)
+
+SPEC CHECKSUMS:
+  CGLAlphabetizer: 944706922004b02e5b5af39bb2b25adaaac71038
+
+COCOAPODS: 0.36.4

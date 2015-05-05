@@ -27,8 +27,8 @@
         <relationship name="songsInSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetList" inverseName="songs" inverseEntity="SetList" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Gigs" positionX="-594" positionY="171" width="128" height="208"/>
-        <element name="Song" positionX="-198" positionY="216" width="128" height="133"/>
-        <element name="SetList" positionX="-425" positionY="111" width="128" height="88"/>
+        <element name="Gigs" positionX="-909" positionY="117" width="128" height="208"/>
+        <element name="SetList" positionX="-486" positionY="90" width="128" height="88"/>
+        <element name="Song" positionX="-20" positionY="216" width="128" height="133"/>
     </elements>
 </model>

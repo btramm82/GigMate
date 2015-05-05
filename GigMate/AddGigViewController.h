@@ -13,7 +13,6 @@
 @interface AddGigViewController : UIViewController <UIActionSheetDelegate, UITextFieldDelegate, NSCoding>
 
 @property (nonatomic, strong) Gigs *gigs;
-
 @property (weak, nonatomic) IBOutlet UITextField *gigName;
 @property (weak, nonatomic) IBOutlet UITextField *gigDate;
 @property (weak, nonatomic) IBOutlet UITextField *gigStartTime;
@@ -25,8 +24,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *gigContactName;
 @property (weak, nonatomic) IBOutlet UITextField *gigNotes;
 
-
 - (IBAction)saveGig:(id)sender;
-
 
 @end

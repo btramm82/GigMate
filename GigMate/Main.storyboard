@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" id="gR0-wI-1Am">
                         <barButtonItem key="rightBarButtonItem" title="Add Gig" id="lfx-Bv-jU3">
                             <connections>
-                                <segue destination="Gc0-Mb-mKo" kind="presentation" id="XE6-RH-In8"/>
+                                <segue destination="Gc0-Mb-mKo" kind="show" id="XE6-RH-In8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -88,6 +88,33 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTZ-jY-jcf" id="Pwv-35-qSm">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-UK-YYG">
+                                            <rect key="frame" x="8" y="0.0" width="524" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Of Songs In Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9M-lt-3a2">
+                                            <rect key="frame" x="8" y="22" width="188" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKU-oP-vVf">
+                                            <rect key="frame" x="546" y="8" width="46" height="30"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="5jU-iK-ztf" kind="show" identifier="editSetList" id="Mkm-qp-sXR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YKU-oP-vVf" firstAttribute="top" secondItem="Pwv-35-qSm" secondAttribute="topMargin" id="19C-VR-Eb7"/>
+                                        <constraint firstItem="YKU-oP-vVf" firstAttribute="trailing" secondItem="Pwv-35-qSm" secondAttribute="trailingMargin" id="WQf-du-jFc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -99,7 +126,7 @@
                     <navigationItem key="navigationItem" id="v8d-2r-uZ6">
                         <barButtonItem key="rightBarButtonItem" title="Add Set" id="1Mj-e8-tIx">
                             <connections>
-                                <segue destination="5hr-jr-pMC" kind="show" id="PEh-vJ-w3E"/>
+                                <segue destination="arm-ia-kzh" kind="show" identifier="addSetList" id="WQ3-is-xen"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -125,12 +152,41 @@
                                 <segments>
                                     <segment title="Song Name"/>
                                     <segment title="Artist"/>
-                                    <segment title="BPM"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControll:" destination="F4H-1w-poM" eventType="valueChanged" id="4nP-kG-Fwo"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9z6-SD-zId">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="rbW-oA-PFV" detailTextLabel="a1j-IJ-34V" style="IBUITableViewCellStyleSubtitle" id="mBv-zp-HF2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mBv-zp-HF2" id="Ptr-hz-IF8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbW-oA-PFV">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1j-IJ-34V">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F4H-1w-poM" id="0AT-AE-0di"/>
+                                    <outlet property="delegate" destination="F4H-1w-poM" id="CAc-Yk-JkZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,6 +207,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="06v-IA-KHU" id="cFP-Hm-a2g"/>
+                        <outlet property="tableView" destination="9z6-SD-zId" id="7Zf-zA-F2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcJ-GL-M2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,7 +301,14 @@
                             <constraint firstItem="ail-mk-snq" firstAttribute="leading" secondItem="8hk-6x-zRW" secondAttribute="leading" id="vfb-3o-Ia3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Song" id="ezX-pW-Hag"/>
+                    <navigationItem key="navigationItem" title="Add Song" id="ezX-pW-Hag">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Wv-f9-DUe">
+                            <connections>
+                                <action selector="saveSong:" destination="rUt-N0-WrP" id="f53-Oo-ODc"/>
+                                <segue destination="c6m-YT-w3K" kind="unwind" identifier="unwindToSongViewController" unwindAction="prepareForSongUnwind:" id="yz6-r7-Ms5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="artistName" destination="8hk-6x-zRW" id="V0V-No-1VV"/>
                         <outlet property="bpm" destination="vqj-We-RoW" id="4dj-fz-qqj"/>
@@ -250,6 +317,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Prx-1R-NE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="c6m-YT-w3K" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2791" y="888"/>
         </scene>
@@ -626,12 +694,39 @@
                                     <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addSongToSet:" destination="5jU-iK-ztf" eventType="touchUpInside" id="nXh-A4-9FS"/>
+                                    <action selector="addSongToSet:" destination="5jU-iK-ztf" eventType="touchUpInside" id="IVL-7E-6s3"/>
+                                    <segue destination="Kbk-nL-SOU" kind="show" identifier="addSongsToSet" id="JeK-7F-yfy"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-uh-JeS">
                                 <rect key="frame" x="16" y="182" width="568" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="QTB-9s-lft" detailTextLabel="jbk-Q7-QDH" style="IBUITableViewCellStyleSubtitle" id="DBR-Qy-3mz">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DBR-Qy-3mz" id="1cM-0V-rtr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTB-9s-lft">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jbk-Q7-QDH">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5jU-iK-ztf" id="Q6a-O1-wTC"/>
+                                    <outlet property="delegate" destination="5jU-iK-ztf" id="BQ2-62-NGx"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -654,16 +749,102 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Set" id="uVD-oK-X7b"/>
+                    <navigationItem key="navigationItem" title="Add Set" id="uVD-oK-X7b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="l6a-Kp-mZV">
+                            <connections>
+                                <action selector="saveSet:" destination="5jU-iK-ztf" id="Z7d-Ii-Uog"/>
+                                <segue destination="cwX-Dg-K7P" kind="unwind" identifier="unwindToSetTableViewController" unwindAction="prepareForSetUnwind:" id="0Y3-wQ-lMG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addSongToSet" destination="yjJ-n7-OUq" id="gO3-sD-hbG"/>
                         <outlet property="setName" destination="enW-vQ-QtR" id="GbZ-ZJ-yK5"/>
+                        <outlet property="tableView" destination="gM9-uh-JeS" id="DwW-yJ-SEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WS-LZ-mn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cwX-Dg-K7P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2791" y="156"/>
+        </scene>
+        <!--Add Song To Set-->
+        <scene sceneID="D7Q-8w-wAK">
+            <objects>
+                <viewController id="IfV-0o-MRq" customClass="AddSongsToSetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O22-Mz-OsC"/>
+                        <viewControllerLayoutGuide type="bottom" id="H88-x3-3jN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xA9-Wa-fvC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8c2-0x-Wih">
+                                <rect key="frame" x="16" y="72" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Song Name"/>
+                                    <segment title="Artist"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControll:" destination="IfV-0o-MRq" eventType="valueChanged" id="Dd1-dY-TFc"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8cL-Xt-K4q">
+                                <rect key="frame" x="0.0" y="102" width="600" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addSongToSetCell" textLabel="wQk-WB-9Mg" detailTextLabel="mq5-OG-Zv4" style="IBUITableViewCellStyleSubtitle" id="Byl-Lc-Azy">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Byl-Lc-Azy" id="EGD-OX-lYv">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQk-WB-9Mg">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mq5-OG-Zv4">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IfV-0o-MRq" id="7Kj-IE-82L"/>
+                                    <outlet property="delegate" destination="IfV-0o-MRq" id="y3s-IE-fHW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8c2-0x-Wih" firstAttribute="trailing" secondItem="xA9-Wa-fvC" secondAttribute="trailingMargin" id="06f-It-T22"/>
+                            <constraint firstItem="8cL-Xt-K4q" firstAttribute="centerX" secondItem="8c2-0x-Wih" secondAttribute="centerX" id="Eki-hK-wmq"/>
+                            <constraint firstItem="8cL-Xt-K4q" firstAttribute="top" secondItem="8c2-0x-Wih" secondAttribute="bottom" constant="2" id="MNS-iO-diS"/>
+                            <constraint firstItem="8cL-Xt-K4q" firstAttribute="bottom" secondItem="H88-x3-3jN" secondAttribute="top" id="UPh-2p-T4M"/>
+                            <constraint firstItem="8c2-0x-Wih" firstAttribute="top" secondItem="O22-Mz-OsC" secondAttribute="bottom" constant="8" id="bvH-Op-5Jn"/>
+                            <constraint firstItem="8cL-Xt-K4q" firstAttribute="leading" secondItem="xA9-Wa-fvC" secondAttribute="leading" id="qqh-kx-hQa"/>
+                            <constraint firstItem="8c2-0x-Wih" firstAttribute="leading" secondItem="xA9-Wa-fvC" secondAttribute="leadingMargin" id="ttz-Us-Uoc"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Song To Set" id="We5-Kh-bKR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6CL-0G-ckn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveSongToSet" destination="6CL-0G-ckn" id="vGH-xK-0WY"/>
+                        <outlet property="segmentedControl" destination="8c2-0x-Wih" id="I20-hP-MOQ"/>
+                        <outlet property="tableView" destination="8cL-Xt-K4q" id="BhK-i5-CwX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOP-0Y-Zw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4181" y="155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AOT-aK-F6B">
@@ -684,24 +865,6 @@
             <point key="canvasLocation" x="2113" y="-532"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="KNS-Za-SbF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5hr-jr-pMC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w9Y-KF-9Qh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5jU-iK-ztf" kind="relationship" relationship="rootViewController" id="3DA-em-h6u"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJU-z1-Ibz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2113" y="156"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="QVk-41-iDc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w79-Lq-dOI" sceneMemberID="viewController">
@@ -719,11 +882,48 @@
             </objects>
             <point key="canvasLocation" x="2113" y="888"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B8T-4c-pGz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="arm-ia-kzh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nKH-KU-USe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5jU-iK-ztf" kind="relationship" relationship="rootViewController" id="gCn-hq-HMI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNo-XG-x9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113" y="156"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Os1-5v-0jI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kbk-nL-SOU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="brP-sr-dfK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IfV-0o-MRq" kind="relationship" relationship="rootViewController" id="eWr-66-J70"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LTF-nB-zCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3484" y="155"/>
+        </scene>
     </scenes>
     <resources>
         <image name="135 copy" width="16" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gCn-hq-HMI"/>
         <segue reference="uOQ-A0-8Hj"/>
     </inferredMetricsTieBreakers>
 </document>

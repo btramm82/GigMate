@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "SetList.h"
+#import "AddSetViewController.h"
 
-@interface SetListTableViewController : UITableViewController
+@interface SetListTableViewController : UITableViewController <UITabBarControllerDelegate>
 
 @end

@@ -25,25 +25,20 @@
     return context;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    // Fetch the places from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Gigs"];
-    
     self.gigs = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -57,7 +52,6 @@
     // Return the number of rows in the section.
     return self.gigs.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"gigsCell";
@@ -76,8 +70,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.tabBarController.selectedIndex = 1;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
@@ -97,36 +94,17 @@
     }
 }
 
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Navigation
- 
  -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-     
  }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editGig"]) {
         NSManagedObject *selectedGig = [self.gigs objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         AddGigViewController *destViewController = segue.destinationViewController;
         destViewController.gigs = (Gigs *)selectedGig;
-    }
+    } if ([segue.identifier isEqualToString:@"gigCellClickedOn"])
+         [self.tabBarController setSelectedIndex:1];
 }
 
 @end

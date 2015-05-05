@@ -118,7 +118,6 @@
     }
 
     NSError *error = nil;
-    // Save the object to persistent store
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     } else {
