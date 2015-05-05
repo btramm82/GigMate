@@ -180,6 +180,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rUt-N0-WrP" kind="show" identifier="editSong" id="wSD-vz-1xN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -880,7 +883,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmQ-3P-VOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="888"/>
+            <point key="canvasLocation" x="2157" y="1379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B8T-4c-pGz">
@@ -923,7 +926,8 @@
         <image name="135 copy" width="16" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gCn-hq-HMI"/>
         <segue reference="uOQ-A0-8Hj"/>
+        <segue reference="wSD-vz-1xN"/>
+        <segue reference="gCn-hq-HMI"/>
     </inferredMetricsTieBreakers>
 </document>

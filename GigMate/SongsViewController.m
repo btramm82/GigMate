@@ -112,6 +112,14 @@
 }
 
 #pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"editSong"]) {
+    NSManagedObject *selSong = [self.songs objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+    AddSongViewController *destViewController = segue.destinationViewController;
+    destViewController.song = (Song *)selSong;
+    }
+}
+
 -(IBAction)prepareForSongUnwind:(UIStoryboardSegue *)segue {
 }
 

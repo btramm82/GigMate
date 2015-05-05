@@ -28,9 +28,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.song) {
+        [self.songName setText:[self.song valueForKey:@"songName"]];
+        [self.artistName setText:[self.song valueForKey:@"artistName"]];
+        [self.bpm setText:[self.song valueForKey:@"bpm"]];
+        [self.songNotes setText:[self.song valueForKey:@"notes"]];
+    }
 }
 
 - (IBAction)saveSong:(id)sender {
+    if (self.song) {
+        [self.song setValue:self.songName.text forKey:@"songName"];
+        [self.song setValue:self.artistName.text forKey:@"artistName"];
+        [self.song setValue:self.bpm.text forKey:@"bpm"];
+        [self.song setValue:self.songNotes.text forKey:@"notes"];
+    } else {
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"songName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
@@ -64,7 +77,7 @@
                 NSLog(@"Problem saving: %@", [error localizedDescription]);
                 }
             } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:@"That Artist already exists" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Song Already Exists" message:@"Edit Existing Song or Save with New Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     
@@ -74,6 +87,7 @@
         NSLog(@"Song Name: %@", [info valueForKey:@"songName"]);
         NSLog(@"Artist Name: %@", [info valueForKey:@"artistName"]);
         NSLog(@"Song BPM: %@", [info valueForKey:@"bpm"]);
+        }
     }
 }
 

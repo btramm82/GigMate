@@ -12,6 +12,8 @@
 #import "SetList.h"
 
 @interface AddSongViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) Song *song;
 @property (weak, nonatomic) IBOutlet UITextField *songName;
 @property (weak, nonatomic) IBOutlet UITextField *artistName;
 @property (weak, nonatomic) IBOutlet UITextField *bpm;
