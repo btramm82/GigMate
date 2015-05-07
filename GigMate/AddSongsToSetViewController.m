@@ -86,7 +86,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *song = [self.songs objectAtIndex:indexPath.row];
     if ([self.selectedSongsFromSongList containsObject:(song)]) {
-        // remove it from selectedSongsFromSongList and remove the checkmark
         [self.selectedSongsFromSongList removeObject:song];
     } else {
         [self.selectedSongsFromSongList addObject:song];
@@ -114,6 +113,9 @@
     }
 }
 
+- (IBAction)saveSongsToSet:(id)sender {
+}
+
 - (IBAction)segmentedControll:(id)sender {
     self.selectedSegmentedIndex = segmentedControl.selectedSegmentIndex;
     NSArray *sortedArray;
@@ -126,6 +128,13 @@
     }
     self.songs = [sortedArray mutableCopy];
     [self.tableView reloadData];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"unwindSongSet"]) {
+    AddSetViewController *destViewController = segue.destinationViewController;
+    destViewController.songs = self.selectedSongsFromSongList;
+    }
 }
 
 @end

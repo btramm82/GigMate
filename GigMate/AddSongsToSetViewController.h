@@ -18,7 +18,9 @@
 @interface AddSongsToSetViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveSongToSet;
+
+- (IBAction)saveSongsToSet:(id)sender;
+
 
 - (IBAction)segmentedControll:(id)sender;
 

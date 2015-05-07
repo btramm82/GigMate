@@ -10,6 +10,9 @@
 
 @interface SetListTableViewController ()
 @property (nonatomic, strong) NSMutableArray *setLists;
+@property (nonatomic, strong) NSMutableArray *songsToPassBack;
+@property (nonatomic, strong) NSString *setName;
+@property (nonatomic, strong) NSMutableArray *songsInSet;
 
 @end
 
@@ -33,9 +36,13 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     // Fetch the places from persistent data store
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SetList"];
-    self.setLists = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSArray *fetchedSets = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    self.setLists = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (SetList *setList in fetchedSets) {
+        NSMutableArray *array = [NSMutableArray arrayWithArray:[[setList.songs allObjects] mutableCopy]];
+        self.songsInSet = array;
+    }
     [self.tableView reloadData];
 }
 
@@ -56,13 +63,20 @@
      static NSString *CellIdentifier = @"setsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSManagedObject *sets = [self.setLists objectAtIndex:indexPath.row];
+    NSMutableArray *songs = [sets valueForKey:@"songs"];
+
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:200];
-    [nameLabel setText:[NSString stringWithFormat:@"%@",[sets valueForKey:@"setName"]]];
-    //UILabel *songCountLabel = (UILabel *)[cell viewWithTag:201];
-    //[songCountLabel setText:[NSString stringWithFormat:@"%@", [sets valueForKey:@"date"]]];
+    [nameLabel setText:[NSString stringWithFormat:@"%@", [sets valueForKey:@"setName"]]];
+    UILabel *songCountLabel = (UILabel *)[cell viewWithTag:201];
+    if ([songs count] < 1) {
+        [songCountLabel setText:[NSString stringWithFormat:@"No songs in set"]];
+    } else if ([songs count] == 1) {
+         [songCountLabel setText:[NSString stringWithFormat:@"%lu song in set", (unsigned long)[songs count]]];
+    } else {
+        [songCountLabel setText:[NSString stringWithFormat:@"%lu songs in set", (unsigned long)[songs count]]];
+    }
     UIButton *editButton = (UIButton *)[cell viewWithTag:202];
     [editButton setTitle:@"Edit" forState:UIControlStateNormal];
-    
     return cell;
 }
 
@@ -72,7 +86,6 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSManagedObjectContext *context = [self managedObjectContext];
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [context deleteObject:[self.setLists objectAtIndex:indexPath.row]];
         NSError *error = nil;
@@ -87,10 +100,10 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-        if ([[segue identifier] isEqualToString:@"editSetList"]) {
-            NSManagedObject *selectedSet = [self.setLists objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-            AddSetViewController *destViewController = segue.destinationViewController;
-            destViewController.setLists = (SetList *)selectedSet;
+    if ([[segue identifier] isEqualToString:@"editSetList"]) {
+        NSManagedObject *selectedSet = [self.setLists objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        AddSetViewController *destViewController = segue.destinationViewController;
+        destViewController.setList = (SetList *)selectedSet;
     }
 }
 

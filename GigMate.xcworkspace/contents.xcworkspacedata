@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GigMate/Song.h">
+   </FileRef>
+   <FileRef
+      location = "group:GigMate/Song.m">
+   </FileRef>
+   <FileRef
       location = "group:GigMate.xcodeproj">
    </FileRef>
 </Workspace>

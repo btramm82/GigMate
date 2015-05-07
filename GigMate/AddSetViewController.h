@@ -14,12 +14,14 @@
 
 @interface AddSetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) SetList *setLists;
+@property (nonatomic, strong) SetList *setList;
+@property (nonatomic, strong) NSMutableArray* songs;
 @property (weak, nonatomic) IBOutlet UITextField *setName;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)addSongToSet:(id)sender;
+
 - (IBAction)saveSet:(id)sender;
 
 @end

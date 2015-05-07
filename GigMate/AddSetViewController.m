@@ -9,8 +9,9 @@
 #import "AddSetViewController.h"
 
 @interface AddSetViewController ()
-@property (nonatomic, strong) NSArray *songs;
-
+@property (nonatomic, strong) NSMutableArray *selectedSongs;
+@property (nonatomic, strong) NSMutableArray *setLists;
+@property (nonatomic, strong) NSSet *savedSongsToPass;
 @end
 
 @implementation AddSetViewController
@@ -28,31 +29,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.setLists) {
-        [self.setName setText:[self.setLists valueForKey:@"setName"]];
-    }
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    // Fetch the places from persistent data store
+    if (self.setList) {
+        [self.setName setText:[self.setList valueForKey:@"setName"]];
+    } else if (self.songs) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SetList"];
+        self.setLists = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        self.selectedSongs = self.songs;
+        [self.tableView reloadData];
+    }
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.setList) {
+        NSMutableArray *songs = [self.setList valueForKey:@"songs"];
+        return [songs count];
+    } else {
+        return [self.selectedSongs count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"songCell";
+    static NSString *CellIdentifier = @"songSetCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSManagedObject *songs = [self.songs objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
-    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
+    if (self.setList) {
+        NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+        NSMutableArray *songs = [songsList objectAtIndex:indexPath.row];
+        NSLog(@"%@, %@, %@", [songs valueForKey:@"songName" ], [songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]);
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
+    } else {
+        NSManagedObject *songs = [self.selectedSongs objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
+    }
     return cell;
 }
 
@@ -61,12 +79,14 @@
 
 - (IBAction)saveSet:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
-    if (self.setLists) {
-        [self.setLists setValue:self.setName.text forKey:@"setName"];
+    if (self.setList) {
+        [self.setList setValue:self.setName.text forKey:@"setName"];
+        [self.setList setValue:[NSSet setWithArray:self.selectedSongs] forKey:@"songs"];
     } else {
-        NSManagedObject *newSet = [NSEntityDescription insertNewObjectForEntityForName:@"SetList" inManagedObjectContext:context];
+        SetList *newSet = (SetList *)[NSEntityDescription insertNewObjectForEntityForName:@"SetList" inManagedObjectContext:context];
         [newSet setValue:self.setName.text forKey:@"setName"];
-
+        [newSet setValue:[NSSet setWithArray:self.selectedSongs] forKey:@"songs"];
+        
         NSError *error = nil;
         // Save the object to persistent store
         if (![context save:&error]) {
@@ -78,8 +98,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"unwindToSetTableViewController"])
-        [self saveSet:nil];
+    if ([[segue identifier] isEqualToString:@"unwindToSetTableViewController"]) {
+    [self saveSet:nil];
+    }
+}
+
+-(IBAction)prepareForSongSetUnwind:(UIStoryboardSegue *)segue {
 }
 @end
 

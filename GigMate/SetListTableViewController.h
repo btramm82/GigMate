@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "SetList.h"
+#import "Song.h"
 #import "AddSetViewController.h"
 
 @interface SetListTableViewController : UITableViewController <UITabBarControllerDelegate>
+
+@property (nonatomic, strong) SetList *setList;
+
+
+
+
 
 @end

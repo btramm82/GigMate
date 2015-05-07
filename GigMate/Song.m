@@ -1,9 +1,9 @@
 //
 //  Song.m
-//  GigMate
+//  
 //
-//  Created by BRIAN TRAMMELL on 4/29/15.
-//  Copyright (c) 2015 TDesigns. All rights reserved.
+//  Created by BRIAN TRAMMELL on 5/6/15.
+//
 //
 
 #import "Song.h"
@@ -14,9 +14,7 @@
 
 @dynamic artistName;
 @dynamic bpm;
-@dynamic notes;
 @dynamic songName;
-@dynamic time;
-@dynamic songsInSet;
+@dynamic setList;
 
 @end

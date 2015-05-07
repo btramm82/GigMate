@@ -16,19 +16,17 @@
     <entity name="SetList" representedClassName="SetList" syncable="YES">
         <attribute name="setName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gig" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gigs" inverseName="setList" inverseEntity="Gigs" syncable="YES"/>
-        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="songsInSet" inverseEntity="Song" syncable="YES"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="setList" inverseEntity="Song" syncable="YES"/>
     </entity>
     <entity name="Song" representedClassName="Song" syncable="YES">
         <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bpm" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="songName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="songsInSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetList" inverseName="songs" inverseEntity="SetList" syncable="YES"/>
+        <relationship name="setList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetList" inverseName="songs" inverseEntity="SetList" syncable="YES"/>
     </entity>
     <elements>
         <element name="Gigs" positionX="-909" positionY="117" width="128" height="208"/>
-        <element name="SetList" positionX="-486" positionY="90" width="128" height="88"/>
-        <element name="Song" positionX="-20" positionY="216" width="128" height="133"/>
+        <element name="SetList" positionX="-486" positionY="90" width="128" height="90"/>
+        <element name="Song" positionX="-20" positionY="216" width="128" height="105"/>
     </elements>
 </model>

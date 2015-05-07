@@ -32,7 +32,6 @@
         [self.songName setText:[self.song valueForKey:@"songName"]];
         [self.artistName setText:[self.song valueForKey:@"artistName"]];
         [self.bpm setText:[self.song valueForKey:@"bpm"]];
-        [self.songNotes setText:[self.song valueForKey:@"notes"]];
     }
 }
 
@@ -41,7 +40,7 @@
         [self.song setValue:self.songName.text forKey:@"songName"];
         [self.song setValue:self.artistName.text forKey:@"artistName"];
         [self.song setValue:self.bpm.text forKey:@"bpm"];
-        [self.song setValue:self.songNotes.text forKey:@"notes"];
+
     } else {
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -71,7 +70,7 @@
                 [newSong setValue:self.songName.text forKey:@"songName"];
                 [newSong setValue:self.artistName.text forKey:@"artistName"];
                 [newSong setValue:self.bpm.text forKey:@"bpm"];
-                [newSong setValue:self.songNotes.text forKey:@"notes"];
+
            
                 if (![context save:&error]) {
                 NSLog(@"Problem saving: %@", [error localizedDescription]);
