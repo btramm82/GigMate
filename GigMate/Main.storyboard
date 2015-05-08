@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x1K-Zf-fMO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x1K-Zf-fMO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gigsCell" id="RXQ-Sq-fNN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="gigsCell" id="RXQ-Sq-fNN">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXQ-Sq-fNN" id="2Ja-I6-LHa">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -39,23 +39,11 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZX-XJ-EoC">
-                                            <rect key="frame" x="562" y="8" width="30" height="30"/>
-                                            <state key="normal" title="Edit">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="Wjg-Hd-16T" kind="show" identifier="editGig" id="uOQ-A0-8Hj"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="MZX-XJ-EoC" firstAttribute="top" secondItem="2Ja-I6-LHa" secondAttribute="topMargin" id="RgM-JM-8Jd"/>
-                                        <constraint firstItem="MZX-XJ-EoC" firstAttribute="top" secondItem="2Ja-I6-LHa" secondAttribute="topMargin" id="X81-4y-wbY"/>
-                                        <constraint firstItem="MZX-XJ-EoC" firstAttribute="trailing" secondItem="2Ja-I6-LHa" secondAttribute="trailingMargin" id="Xbh-lY-7Qy"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="MZX-XJ-EoC" secondAttribute="bottom" constant="-3" id="mNV-Qm-Y69"/>
-                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Wjg-Hd-16T" kind="show" identifier="editGig" id="GBb-Kf-B4F"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -84,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setsCell" id="fTZ-jY-jcf">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="setsCell" id="fTZ-jY-jcf">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTZ-jY-jcf" id="Pwv-35-qSm">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -104,7 +92,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="5jU-iK-ztf" kind="show" identifier="editSetList" id="z5G-7a-fWf"/>
+                                    <segue destination="5M6-AQ-5Z2" kind="show" identifier="showGigSet" id="2ne-pl-jGk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -120,10 +108,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="5jU-iK-ztf" kind="show" identifier="editSetList" id="ZNc-GQ-3vn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPY-VK-6Ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="161"/>
+            <point key="canvasLocation" x="1456" y="121"/>
         </scene>
         <!--Songs-->
         <scene sceneID="0hD-do-fPo">
@@ -208,6 +199,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcJ-GL-M2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1426" y="888"/>
+        </scene>
+        <!--The Gig Set List-->
+        <scene sceneID="FEk-gc-OaL">
+            <objects>
+                <tableViewController id="MZR-wo-gbR" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1OI-b3-rbP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sgq-WW-lrd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgq-WW-lrd" id="eAA-Y4-86v">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MZR-wo-gbR" id="5Mf-yv-b8f"/>
+                            <outlet property="delegate" destination="MZR-wo-gbR" id="VVb-m6-bJm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="The Gig Set List" id="A1h-X4-TgC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VF0-rp-1ZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5627" y="156"/>
         </scene>
         <!--Add Song-->
         <scene sceneID="nnp-3m-EKY">
@@ -644,7 +662,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0h-Ib-pdK">
-                                <rect key="frame" x="16" y="72" width="73" height="20"/>
+                                <rect key="frame" x="16" y="72" width="169" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -655,25 +673,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Songs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rA-fc-0Xm">
-                                <rect key="frame" x="16" y="154" width="47" height="20"/>
+                                <rect key="frame" x="16" y="153" width="47" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-n7-OUq">
-                                <rect key="frame" x="59" y="145" width="30" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addSongToSet:" destination="5jU-iK-ztf" eventType="touchUpInside" id="IVL-7E-6s3"/>
-                                    <segue destination="Kbk-nL-SOU" kind="show" identifier="addSongsToSet" id="JeK-7F-yfy"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-uh-JeS">
-                                <rect key="frame" x="16" y="182" width="568" height="366"/>
+                                <rect key="frame" x="16" y="181" width="568" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songSetCell" textLabel="QTB-9s-lft" detailTextLabel="jbk-Q7-QDH" style="IBUITableViewCellStyleSubtitle" id="DBR-Qy-3mz">
@@ -702,20 +708,33 @@
                                     <outlet property="delegate" destination="5jU-iK-ztf" id="BQ2-62-NGx"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-n7-OUq">
+                                <rect key="frame" x="71" y="149" width="144" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Add/Remove Songs">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSongToSet:" destination="5jU-iK-ztf" eventType="touchUpInside" id="IVL-7E-6s3"/>
+                                    <segue destination="Kbk-nL-SOU" kind="show" identifier="addSongsToSet" id="JeK-7F-yfy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yjJ-n7-OUq" firstAttribute="leading" secondItem="1rA-fc-0Xm" secondAttribute="trailing" constant="8" id="0cT-aM-zhT"/>
                             <constraint firstItem="gM9-uh-JeS" firstAttribute="top" secondItem="1rA-fc-0Xm" secondAttribute="bottom" constant="8" symbolic="YES" id="6A6-ax-eJk"/>
-                            <constraint firstItem="gM9-uh-JeS" firstAttribute="top" secondItem="yjJ-n7-OUq" secondAttribute="bottom" constant="7" id="BYt-X0-T8I"/>
+                            <constraint firstItem="gM9-uh-JeS" firstAttribute="top" secondItem="yjJ-n7-OUq" secondAttribute="bottom" constant="5" id="BYt-X0-T8I"/>
                             <constraint firstItem="enW-vQ-QtR" firstAttribute="top" secondItem="l0h-Ib-pdK" secondAttribute="bottom" constant="8" symbolic="YES" id="KQb-6h-RCx"/>
                             <constraint firstItem="1rA-fc-0Xm" firstAttribute="baseline" secondItem="yjJ-n7-OUq" secondAttribute="firstBaseline" id="NdZ-3c-HjG"/>
                             <constraint firstItem="1rA-fc-0Xm" firstAttribute="leading" secondItem="enW-vQ-QtR" secondAttribute="leading" id="OGY-CJ-hnq"/>
                             <constraint firstItem="yjJ-n7-OUq" firstAttribute="baseline" secondItem="1rA-fc-0Xm" secondAttribute="baseline" id="S1a-WP-su5"/>
                             <constraint firstItem="l0h-Ib-pdK" firstAttribute="top" secondItem="bQ7-tX-zjJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Six-8i-bMp"/>
-                            <constraint firstItem="l0h-Ib-pdK" firstAttribute="trailing" secondItem="yjJ-n7-OUq" secondAttribute="trailing" id="Td8-uZ-uyu"/>
+                            <constraint firstItem="l0h-Ib-pdK" firstAttribute="trailing" secondItem="yjJ-n7-OUq" secondAttribute="trailing" constant="-30" id="Td8-uZ-uyu"/>
                             <constraint firstItem="gM9-uh-JeS" firstAttribute="leading" secondItem="ygx-pw-YM7" secondAttribute="leadingMargin" id="Tno-wX-iCO"/>
                             <constraint firstItem="enW-vQ-QtR" firstAttribute="leading" secondItem="l0h-Ib-pdK" secondAttribute="leading" id="XWz-X3-goN"/>
-                            <constraint firstItem="yjJ-n7-OUq" firstAttribute="top" secondItem="enW-vQ-QtR" secondAttribute="bottom" constant="15" id="ZiS-Hv-YLh"/>
+                            <constraint firstItem="yjJ-n7-OUq" firstAttribute="top" secondItem="enW-vQ-QtR" secondAttribute="bottom" constant="19" id="ZiS-Hv-YLh"/>
                             <constraint firstItem="gM9-uh-JeS" firstAttribute="leading" secondItem="1rA-fc-0Xm" secondAttribute="leading" id="rch-XX-juc"/>
                             <constraint firstItem="gM9-uh-JeS" firstAttribute="trailing" secondItem="enW-vQ-QtR" secondAttribute="trailing" id="sLb-GY-8gQ"/>
                             <constraint firstItem="enW-vQ-QtR" firstAttribute="trailing" secondItem="ygx-pw-YM7" secondAttribute="trailingMargin" id="sak-ue-Jgy"/>
@@ -740,7 +759,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WS-LZ-mn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cwX-Dg-K7P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2791" y="156"/>
+            <point key="canvasLocation" x="2803" y="121"/>
         </scene>
         <!--Add Song To Set-->
         <scene sceneID="D7Q-8w-wAK">
@@ -859,7 +878,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmQ-3P-VOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="888"/>
+            <point key="canvasLocation" x="2128" y="888"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B8T-4c-pGz">
@@ -877,7 +896,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNo-XG-x9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="161"/>
+            <point key="canvasLocation" x="2128" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Os1-5v-0jI">
@@ -895,15 +914,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTF-nB-zCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3484" y="155"/>
+            <point key="canvasLocation" x="3482" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Uh-lu-Afk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5M6-AQ-5Z2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xX5-hR-aqV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MZR-wo-gbR" kind="relationship" relationship="rootViewController" id="bbI-Hn-T63"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7M-C2-l0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4949" y="155"/>
         </scene>
     </scenes>
     <resources>
         <image name="135 copy" width="16" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gCn-hq-HMI"/>
-        <segue reference="wSD-vz-1xN"/>
-        <segue reference="uOQ-A0-8Hj"/>
+        <segue reference="ZNc-GQ-3vn"/>
+        <segue reference="GBb-Kf-B4F"/>
+        <segue reference="Nyk-7g-Ugu"/>
     </inferredMetricsTieBreakers>
 </document>

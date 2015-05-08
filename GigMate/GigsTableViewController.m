@@ -10,10 +10,14 @@
 
 @interface GigsTableViewController ()
 @property (nonatomic, strong) NSMutableArray *gigs;
+@property (nonatomic, strong) NSMutableArray *gigToEdit;
+@property (nonatomic, strong) NSIndexPath *editIndexPath;
 
 @end
 
 @implementation GigsTableViewController
+
+NSInteger selectedRow;
 
 #pragma mark - Core Data
 - (NSManagedObjectContext *)managedObjectContext {
@@ -64,10 +68,15 @@
     [dateLabel setText:[NSString stringWithFormat:@"%@", [gigs valueForKey:@"date"]]];
     UILabel *startTimeLabel = (UILabel *)[cell viewWithTag:102];
     [startTimeLabel setText:[NSString stringWithFormat:@"%@ - %@", [gigs valueForKey:@"startTime"], [gigs valueForKey:@"endTime"]]];
-    UIButton *editButton = (UIButton *)[cell viewWithTag:103];
-    [editButton setTitle:@"Edit" forState:UIControlStateNormal];
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    selectedRow = indexPath.row;
+    self.gigToEdit = [self.gigs objectAtIndex:selectedRow];
+    NSLog(@"%@", self.gigToEdit);
+    [self performSegueWithIdentifier:@"editGig" sender:self];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,7 +109,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editGig"]) {
-        NSManagedObject *selectedGig = [self.gigs objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        NSManagedObject *selectedGig = [self.gigs objectAtIndex:selectedRow];
         AddGigViewController *destViewController = segue.destinationViewController;
         destViewController.gigs = (Gigs *)selectedGig;
     } if ([segue.identifier isEqualToString:@"gigCellClickedOn"])

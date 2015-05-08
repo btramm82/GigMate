@@ -13,7 +13,6 @@
 @property (nonatomic, strong) NSMutableArray *songs;
 @property (nonatomic) NSInteger selectedSegmentedIndex;
 @property (nonatomic, strong) NSMutableArray *alphabetArray;
-@property (nonatomic, strong) NSMutableArray *selectedSongsFromSongList;
 
 @end
 
@@ -33,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.allowsMultipleSelection = YES;
-    self.selectedSongsFromSongList = [NSMutableArray array];
+    //self.selectedSongsFromSongList = [NSMutableArray array];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -84,6 +83,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+//    Song *song = [songsList objectAtIndex:indexPath.row];
+//    [self.setList.songs removeObject:song];
+
     NSManagedObject *song = [self.songs objectAtIndex:indexPath.row];
     if ([self.selectedSongsFromSongList containsObject:(song)]) {
         [self.selectedSongsFromSongList removeObject:song];

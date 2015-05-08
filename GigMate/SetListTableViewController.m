@@ -13,10 +13,13 @@
 @property (nonatomic, strong) NSMutableArray *songsToPassBack;
 @property (nonatomic, strong) NSString *setName;
 @property (nonatomic, strong) NSMutableArray *songsInSet;
+@property (nonatomic, strong) NSMutableArray *setToEdit;
 
 @end
 
 @implementation SetListTableViewController
+
+NSInteger selectedRows;
 
 #pragma mark - Core Data
 - (NSManagedObjectContext *)managedObjectContext {
@@ -80,6 +83,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    selectedRows = indexPath.row;
+    self.setToEdit = [self.setLists objectAtIndex:selectedRows];
+    NSLog(@"%@", self.setToEdit);
+    [self performSegueWithIdentifier:@"editSetList" sender:self];
+}
+
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
@@ -101,7 +113,7 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editSetList"]) {
-        NSManagedObject *selectedSet = [self.setLists objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        NSManagedObject *selectedSet = [self.setLists objectAtIndex:selectedRows];
         AddSetViewController *destViewController = segue.destinationViewController;
         destViewController.setList = (SetList *)selectedSet;
     }

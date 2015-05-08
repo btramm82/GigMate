@@ -52,8 +52,6 @@
     [fetchRequest setEntity:entity];
     
     fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
-
-    NSLog(@"saveSongInformation");
     NSError *error = nil;
     if (self.songName.text !=nil) {
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"songName  contains[cd] %@", self.songName.text];
@@ -64,7 +62,6 @@
             exit(-1);  // Fail
         }
             if ([fetchedResultsController.fetchedObjects count] < 1) {
-                NSLog(@"Found that Artist already in Core Data");
                 NSManagedObjectContext *context = [self managedObjectContext];
                 NSManagedObject *newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
                 [newSong setValue:self.songName.text forKey:@"songName"];

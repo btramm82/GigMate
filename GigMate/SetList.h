@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * setName;
 @property (nonatomic, retain) NSSet *gig;
-@property (nonatomic, retain) NSSet *songs;
+@property (nonatomic, retain) NSMutableSet *songs;
 @end
 
 @interface SetList (CoreDataGeneratedAccessors)
