@@ -18,11 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *artistName;
 @property (weak, nonatomic) IBOutlet UITextField *bpm;
 
-
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-
-
 
 - (IBAction)saveSong:(id)sender;
 

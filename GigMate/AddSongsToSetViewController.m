@@ -65,7 +65,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"addSongToSetCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
+    
     NSManagedObject *song = [self.songs objectAtIndex:indexPath.row];
     if(self.segmentedControl.selectedSegmentIndex == 0) {
         [cell.textLabel setText:[NSString stringWithFormat:@"%@",[song valueForKey:@"songName"]]];
@@ -84,11 +84,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
-//    Song *song = [songsList objectAtIndex:indexPath.row];
-//    [self.setList.songs removeObject:song];
-
+    //    NSManagedObjectContext *context = [self managedObjectContext];
+    //    NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+    //    Song *song = [songsList objectAtIndex:indexPath.row];
+    //    [self.setList.songs removeObject:song];
+    
     NSManagedObject *song = [self.songs objectAtIndex:indexPath.row];
     if ([self.selectedSongsFromSongList containsObject:(song)]) {
         [self.selectedSongsFromSongList removeObject:song];
@@ -137,8 +137,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"unwindSongSet"]) {
-    AddSetViewController *destViewController = segue.destinationViewController;
-    destViewController.songs = self.selectedSongsFromSongList;
+        AddSetViewController *destViewController = segue.destinationViewController;
+        destViewController.songs = self.selectedSongsFromSongList;
     }
 }
 

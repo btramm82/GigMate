@@ -11,6 +11,7 @@
 #import "SetList.h"
 #import "Song.h"
 #import "AddSetViewController.h"
+#import "GigSetTableViewController.h"
 
 @interface SetListTableViewController : UITableViewController <UITabBarControllerDelegate>
 

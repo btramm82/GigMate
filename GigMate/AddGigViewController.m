@@ -34,7 +34,7 @@
         [self.gigNotes setText:[self.gigs valueForKey:@"notes"]];
     }
 }
-    
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if (_gigDate) {
         UIDatePicker *datePicker = [[UIDatePicker alloc] init];
@@ -53,29 +53,29 @@
         [endTimePicker addTarget:self action:@selector(updateEndTime:) forControlEvents:UIControlEventValueChanged];
     }
 }
-    
+
 -(void)updateDate:(id)sender {
-        UIDatePicker *picker = (UIDatePicker*)self.gigDate.inputView;
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"MM-dd-yy"];
-        NSString *date = [dateFormat stringFromDate:picker.date];
+    UIDatePicker *picker = (UIDatePicker*)self.gigDate.inputView;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM-dd-yy"];
+    NSString *date = [dateFormat stringFromDate:picker.date];
     self.gigDate.text = [NSString stringWithFormat:@"%@", date];
 }
 
 -(void)updateStartTime:(id)sender {
-        UIDatePicker *timePicker = (UIDatePicker*)self.gigStartTime.inputView;
-        NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-        [timeFormat setDateFormat:@"h:mm a"];
-        NSString *time = [timeFormat stringFromDate:timePicker.date];
-        self.gigStartTime.text = [NSString stringWithFormat:@"%@", time];
+    UIDatePicker *timePicker = (UIDatePicker*)self.gigStartTime.inputView;
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"h:mm a"];
+    NSString *time = [timeFormat stringFromDate:timePicker.date];
+    self.gigStartTime.text = [NSString stringWithFormat:@"%@", time];
 }
 
 -(void)updateEndTime:(id)sender {
-        UIDatePicker *endTimePicker = (UIDatePicker *)self.gigEndTime.inputView;
-        NSDateFormatter *endTimeFormat = [[NSDateFormatter alloc] init];
-        [endTimeFormat setDateFormat:@"h:mm a"];
-        NSString *endTime = [endTimeFormat stringFromDate:endTimePicker.date];
-        self.gigEndTime.text = [NSString stringWithFormat:@"%@", endTime];
+    UIDatePicker *endTimePicker = (UIDatePicker *)self.gigEndTime.inputView;
+    NSDateFormatter *endTimeFormat = [[NSDateFormatter alloc] init];
+    [endTimeFormat setDateFormat:@"h:mm a"];
+    NSString *endTime = [endTimeFormat stringFromDate:endTimePicker.date];
+    self.gigEndTime.text = [NSString stringWithFormat:@"%@", endTime];
 }
 
 #pragma mark - Core Data
@@ -91,7 +91,6 @@
 
 - (IBAction)saveGig:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
-    
     if (self.gigs) {
         [self.gigs setValue:self.gigName.text forKey:@"name"];
         [self.gigs setValue:self.gigStartTime.text forKey:@"startTime"];
@@ -116,7 +115,6 @@
         [newGig setValue:self.gigContactName.text forKey:@"contactName"];
         [newGig setValue:self.gigNotes.text forKey:@"notes"];
     }
-
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);

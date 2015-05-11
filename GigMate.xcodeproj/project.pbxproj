@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191CA4EC1B0116550011D047 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CA4EB1B0116550011D047 /* Song.m */; };
+		191CA4EF1B01470C0011D047 /* GigSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CA4EE1B01470C0011D047 /* GigSetTableViewController.m */; };
 		194B7EA21AF1C6C50025F199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA11AF1C6C50025F199 /* main.m */; };
 		194B7EA51AF1C6C50025F199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA41AF1C6C50025F199 /* AppDelegate.m */; };
 		194B7EA81AF1C6C50025F199 /* GigMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */; };
@@ -18,7 +20,6 @@
 		194B7ED81AF1C73D0025F199 /* AddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ECF1AF1C73D0025F199 /* AddSongViewController.m */; };
 		194B7ED91AF1C73D0025F199 /* GigsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ED11AF1C73D0025F199 /* GigsTableViewController.m */; };
 		194B7EDA1AF1C73D0025F199 /* SetListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ED31AF1C73D0025F199 /* SetListTableViewController.m */; };
-		194B7EF21AF1C8BC0025F199 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EF11AF1C8BC0025F199 /* Song.m */; };
 		194B7EF51AF1C8BD0025F199 /* Gigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EF41AF1C8BD0025F199 /* Gigs.m */; };
 		194B7EF81AF1C8BD0025F199 /* SetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EF71AF1C8BD0025F199 /* SetList.m */; };
 		194B7F001AF1C9AE0025F199 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EFB1AF1C9AE0025F199 /* IQNSArray+Sort.m */; };
@@ -49,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		191CA4EA1B0116550011D047 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		191CA4EB1B0116550011D047 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		191CA4ED1B01470C0011D047 /* GigSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigSetTableViewController.h; sourceTree = "<group>"; };
+		191CA4EE1B01470C0011D047 /* GigSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigSetTableViewController.m; sourceTree = "<group>"; };
 		194B7E9C1AF1C6C50025F199 /* GigMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		194B7EA01AF1C6C50025F199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		194B7EA11AF1C6C50025F199 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,8 +75,6 @@
 		194B7ED11AF1C73D0025F199 /* GigsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigsTableViewController.m; sourceTree = "<group>"; };
 		194B7ED21AF1C73D0025F199 /* SetListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetListTableViewController.h; sourceTree = "<group>"; };
 		194B7ED31AF1C73D0025F199 /* SetListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetListTableViewController.m; sourceTree = "<group>"; };
-		194B7EF01AF1C8BC0025F199 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		194B7EF11AF1C8BC0025F199 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		194B7EF31AF1C8BD0025F199 /* Gigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gigs.h; sourceTree = "<group>"; };
 		194B7EF41AF1C8BD0025F199 /* Gigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gigs.m; sourceTree = "<group>"; };
 		194B7EF61AF1C8BD0025F199 /* SetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetList.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				194B7ED31AF1C73D0025F199 /* SetListTableViewController.m */,
 				19D5B0881AF3621100B41A32 /* SongsViewController.h */,
 				19D5B0891AF3621100B41A32 /* SongsViewController.m */,
+				191CA4ED1B01470C0011D047 /* GigSetTableViewController.h */,
+				191CA4EE1B01470C0011D047 /* GigSetTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -216,12 +221,12 @@
 		194B7EE61AF1C7610025F199 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				191CA4EA1B0116550011D047 /* Song.h */,
+				191CA4EB1B0116550011D047 /* Song.m */,
 				194B7EF61AF1C8BD0025F199 /* SetList.h */,
 				194B7EF71AF1C8BD0025F199 /* SetList.m */,
 				194B7EF31AF1C8BD0025F199 /* Gigs.h */,
 				194B7EF41AF1C8BD0025F199 /* Gigs.m */,
-				194B7EF01AF1C8BC0025F199 /* Song.h */,
-				194B7EF11AF1C8BC0025F199 /* Song.m */,
 				194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */,
 			);
 			name = Model;
@@ -411,9 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194B7EF21AF1C8BC0025F199 /* Song.m in Sources */,
+				191CA4EC1B0116550011D047 /* Song.m in Sources */,
 				197811741AF7E0CF009D0EAC /* AddSongsToSetViewController.m in Sources */,
 				194B7F1A1AF1C9E80025F199 /* IQTitleBarButtonItem.m in Sources */,
+				191CA4EF1B01470C0011D047 /* GigSetTableViewController.m in Sources */,
 				194B7ED61AF1C73D0025F199 /* AddGigViewController.m in Sources */,
 				194B7F1B1AF1C9E80025F199 /* IQToolbar.m in Sources */,
 				194B7F0D1AF1C9D70025F199 /* IQSegmentedNextPrevious.m in Sources */,

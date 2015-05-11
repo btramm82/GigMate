@@ -75,7 +75,6 @@ NSInteger selectedRow;
 {
     selectedRow = indexPath.row;
     self.gigToEdit = [self.gigs objectAtIndex:selectedRow];
-    NSLog(@"%@", self.gigToEdit);
     [self performSegueWithIdentifier:@"editGig" sender:self];
 }
 

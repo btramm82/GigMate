@@ -40,49 +40,44 @@
         [self.song setValue:self.songName.text forKey:@"songName"];
         [self.song setValue:self.artistName.text forKey:@"artistName"];
         [self.song setValue:self.bpm.text forKey:@"bpm"];
-
     } else {
-
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"songName" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Song" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
-    NSError *error = nil;
-    if (self.songName.text !=nil) {
-        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"songName  contains[cd] %@", self.songName.text];
-        [fetchedResultsController.fetchRequest setPredicate:predicate];
-    }
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"songName" ascending:YES];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Song" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+        NSError *error = nil;
+        if (self.songName.text !=nil) {
+            NSPredicate *predicate =[NSPredicate predicateWithFormat:@"songName  contains[cd] %@", self.songName.text];
+            [fetchedResultsController.fetchRequest setPredicate:predicate];
+        }
         if (![[self fetchedResultsController] performFetch:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             exit(-1);  // Fail
         }
-            if ([fetchedResultsController.fetchedObjects count] < 1) {
-                NSManagedObjectContext *context = [self managedObjectContext];
-                NSManagedObject *newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
-                [newSong setValue:self.songName.text forKey:@"songName"];
-                [newSong setValue:self.artistName.text forKey:@"artistName"];
-                [newSong setValue:self.bpm.text forKey:@"bpm"];
-
-           
-                if (![context save:&error]) {
+        if ([fetchedResultsController.fetchedObjects count] < 1) {
+            NSManagedObjectContext *context = [self managedObjectContext];
+            NSManagedObject *newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
+            [newSong setValue:self.songName.text forKey:@"songName"];
+            [newSong setValue:self.artistName.text forKey:@"artistName"];
+            [newSong setValue:self.bpm.text forKey:@"bpm"];
+            if (![context save:&error]) {
                 NSLog(@"Problem saving: %@", [error localizedDescription]);
-                }
-            } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Song Already Exists" message:@"Edit Existing Song or Save with New Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-    
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for (NSManagedObject *info in fetchedObjects) {
-        NSLog(@"Song Name: %@", [info valueForKey:@"songName"]);
-        NSLog(@"Artist Name: %@", [info valueForKey:@"artistName"]);
-        NSLog(@"Song BPM: %@", [info valueForKey:@"bpm"]);
+            }
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Song Already Exists" message:@"Edit Existing Song or Save with New Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+        [fetchRequest setEntity:entity];
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        for (NSManagedObject *info in fetchedObjects) {
+            NSLog(@"Song Name: %@", [info valueForKey:@"songName"]);
+            NSLog(@"Artist Name: %@", [info valueForKey:@"artistName"]);
+            NSLog(@"Song BPM: %@", [info valueForKey:@"bpm"]);
         }
     }
 }

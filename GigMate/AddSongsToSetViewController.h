@@ -21,8 +21,6 @@
 @property (nonatomic, strong) NSMutableArray *selectedSongsFromSongList;
 
 - (IBAction)saveSongsToSet:(id)sender;
-
-
 - (IBAction)segmentedControll:(id)sender;
 
 @end

@@ -77,22 +77,33 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTZ-jY-jcf" id="Pwv-35-qSm">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-UK-YYG">
-                                            <rect key="frame" x="8" y="0.0" width="524" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-UK-YYG">
+                                            <rect key="frame" x="1" y="-3" width="524" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Of Songs In Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9M-lt-3a2">
-                                            <rect key="frame" x="8" y="22" width="524" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Of Songs In Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9M-lt-3a2">
+                                            <rect key="frame" x="1" y="22" width="524" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="524" id="84f-Hj-Yks"/>
+                                                <constraint firstAttribute="height" constant="21" id="fTQ-RN-eIz"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="L9M-lt-3a2" firstAttribute="leading" secondItem="jVh-UK-YYG" secondAttribute="leading" id="EoP-gr-tzW"/>
+                                        <constraint firstAttribute="bottom" secondItem="L9M-lt-3a2" secondAttribute="bottom" id="WjP-BW-4aZ"/>
+                                        <constraint firstItem="L9M-lt-3a2" firstAttribute="trailing" secondItem="jVh-UK-YYG" secondAttribute="trailing" id="ZX8-8y-afh"/>
+                                        <constraint firstItem="L9M-lt-3a2" firstAttribute="top" secondItem="jVh-UK-YYG" secondAttribute="bottom" constant="1" id="kZF-ac-Vdy"/>
+                                        <constraint firstItem="L9M-lt-3a2" firstAttribute="leading" secondItem="Pwv-35-qSm" secondAttribute="leadingMargin" constant="-7" id="xH0-ho-2ta"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="5M6-AQ-5Z2" kind="show" identifier="showGigSet" id="2ne-pl-jGk"/>
+                                    <segue destination="MZR-wo-gbR" kind="show" identifier="showGigSet" id="PHt-9j-ja1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -203,16 +214,30 @@
         <!--The Gig Set List-->
         <scene sceneID="FEk-gc-OaL">
             <objects>
-                <tableViewController id="MZR-wo-gbR" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1OI-b3-rbP">
+                <tableViewController id="MZR-wo-gbR" customClass="GigSetTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="1OI-b3-rbP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sgq-WW-lrd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gigSong" rowHeight="46" id="sgq-WW-lrd">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgq-WW-lrd" id="eAA-Y4-86v">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="400" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGG-Ik-PBn">
+                                            <rect key="frame" x="1" y="6" width="598" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DGG-Ik-PBn" firstAttribute="top" secondItem="eAA-Y4-86v" secondAttribute="topMargin" constant="-2" id="9rF-YS-0mX"/>
+                                        <constraint firstItem="DGG-Ik-PBn" firstAttribute="bottom" secondItem="eAA-Y4-86v" secondAttribute="bottomMargin" id="SaF-xJ-LXs"/>
+                                        <constraint firstItem="DGG-Ik-PBn" firstAttribute="centerX" secondItem="eAA-Y4-86v" secondAttribute="centerX" id="dgv-IA-UtJ"/>
+                                        <constraint firstItem="DGG-Ik-PBn" firstAttribute="leading" secondItem="eAA-Y4-86v" secondAttribute="leadingMargin" constant="-7" id="u4u-sn-ej2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -225,7 +250,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VF0-rp-1ZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5627" y="156"/>
+            <point key="canvasLocation" x="4257" y="850"/>
         </scene>
         <!--Add Song-->
         <scene sceneID="nnp-3m-EKY">
@@ -827,7 +852,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Song To Set" id="We5-Kh-bKR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6CL-0G-ckn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6CL-0G-ckn">
                             <connections>
                                 <action selector="saveSongsToSet:" destination="IfV-0o-MRq" id="z7a-25-0a8"/>
                                 <segue destination="zpd-Lb-394" kind="unwind" identifier="unwindSongSet" unwindAction="prepareForSongSetUnwind:" id="2nQ-vh-PdU"/>
@@ -842,7 +867,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOP-0Y-Zw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zpd-Lb-394" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4181" y="155"/>
+            <point key="canvasLocation" x="4257" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AOT-aK-F6B">
@@ -914,25 +939,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTF-nB-zCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482" y="121"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4Uh-lu-Afk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5M6-AQ-5Z2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xX5-hR-aqV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MZR-wo-gbR" kind="relationship" relationship="rootViewController" id="bbI-Hn-T63"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y7M-C2-l0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4949" y="155"/>
+            <point key="canvasLocation" x="3517" y="121"/>
         </scene>
     </scenes>
     <resources>

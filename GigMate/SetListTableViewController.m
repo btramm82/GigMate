@@ -87,7 +87,6 @@ NSInteger selectedRows;
 {
     selectedRows = indexPath.row;
     self.setToEdit = [self.setLists objectAtIndex:selectedRows];
-    NSLog(@"%@", self.setToEdit);
     [self performSegueWithIdentifier:@"editSetList" sender:self];
 }
 
@@ -115,6 +114,10 @@ NSInteger selectedRows;
     if ([[segue identifier] isEqualToString:@"editSetList"]) {
         NSManagedObject *selectedSet = [self.setLists objectAtIndex:selectedRows];
         AddSetViewController *destViewController = segue.destinationViewController;
+        destViewController.setList = (SetList *)selectedSet;
+    } else if ([[segue identifier] isEqualToString:@"showGigSet"]) {
+          NSManagedObject *selectedSet = [self.setLists objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        GigSetTableViewController *destViewController = segue.destinationViewController;
         destViewController.setList = (SetList *)selectedSet;
     }
 }

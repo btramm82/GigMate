@@ -61,10 +61,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.setList) {
         if (self.songs) {
-             return [self.selectedSongs count];
+            return [self.selectedSongs count];
         } else {
-        NSMutableArray *songs = [self.setList valueForKey:@"songs"];
-        return [songs count];
+            NSMutableArray *songs = [self.setList valueForKey:@"songs"];
+            return [songs count];
         }
     } else {
         return [self.selectedSongs count];
@@ -80,10 +80,10 @@
             [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
             [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
         } else {
-        NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
-        NSMutableArray *songs = [songsList objectAtIndex:indexPath.row];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
-        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
+            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            NSMutableArray *songs = [songsList objectAtIndex:indexPath.row];
+            [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
+            [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
         }
     } else {
         NSManagedObject *songs = [self.selectedSongs objectAtIndex:indexPath.row];
