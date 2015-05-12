@@ -31,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.setList) {
@@ -39,7 +38,7 @@
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SetList"];
             self.setLists = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
             self.selectedSongs = self.songs;
-            //[self.tableView reloadData];
+            [self.tableView reloadData];
         } else {
             [self.setName setText:[self.setList valueForKey:@"setName"]];
             self.songs = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
@@ -50,9 +49,7 @@
         self.selectedSongs = self.songs;
         [self.tableView reloadData];
     }
-    
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -75,14 +72,15 @@
     static NSString *CellIdentifier = @"songSetCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [self.tableView setEditing:YES];
+    
     if (self.setList) {
         if (self.songs) {
             NSManagedObject *songs = [self.selectedSongs objectAtIndex:indexPath.row];
             [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
             [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
         } else {
-            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
-            NSMutableArray *songs = [songsList objectAtIndex:indexPath.row];
+            self.selectedSongs = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
+            NSMutableArray *songs = [self.selectedSongs objectAtIndex:indexPath.row];
             [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
             [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
         }
