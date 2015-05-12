@@ -43,8 +43,7 @@ NSInteger selectedRows;
     NSArray *fetchedSets = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     self.setLists = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     for (SetList *setList in fetchedSets) {
-        NSMutableArray *array = [NSMutableArray arrayWithArray:[[setList.songs allObjects] mutableCopy]];
-        self.songsInSet = array;
+        self.songsInSet = [NSMutableArray arrayWithArray:[[setList.songs array] mutableCopy]];
     }
     [self.tableView reloadData];
 }
@@ -115,6 +114,7 @@ NSInteger selectedRows;
         NSManagedObject *selectedSet = [self.setLists objectAtIndex:selectedRows];
         AddSetViewController *destViewController = segue.destinationViewController;
         destViewController.setList = (SetList *)selectedSet;
+        destViewController.songsInSet = self.songsInSet;
     } else if ([[segue identifier] isEqualToString:@"showGigSet"]) {
           NSManagedObject *selectedSet = [self.setLists objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         GigSetTableViewController *destViewController = segue.destinationViewController;

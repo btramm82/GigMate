@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191CA4EC1B0116550011D047 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CA4EB1B0116550011D047 /* Song.m */; };
 		191CA4EF1B01470C0011D047 /* GigSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CA4EE1B01470C0011D047 /* GigSetTableViewController.m */; };
 		194B7EA21AF1C6C50025F199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA11AF1C6C50025F199 /* main.m */; };
 		194B7EA51AF1C6C50025F199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EA41AF1C6C50025F199 /* AppDelegate.m */; };
@@ -20,8 +19,6 @@
 		194B7ED81AF1C73D0025F199 /* AddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ECF1AF1C73D0025F199 /* AddSongViewController.m */; };
 		194B7ED91AF1C73D0025F199 /* GigsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ED11AF1C73D0025F199 /* GigsTableViewController.m */; };
 		194B7EDA1AF1C73D0025F199 /* SetListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7ED31AF1C73D0025F199 /* SetListTableViewController.m */; };
-		194B7EF51AF1C8BD0025F199 /* Gigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EF41AF1C8BD0025F199 /* Gigs.m */; };
-		194B7EF81AF1C8BD0025F199 /* SetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EF71AF1C8BD0025F199 /* SetList.m */; };
 		194B7F001AF1C9AE0025F199 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EFB1AF1C9AE0025F199 /* IQNSArray+Sort.m */; };
 		194B7F011AF1C9AE0025F199 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EFD1AF1C9AE0025F199 /* IQUIView+Hierarchy.m */; };
 		194B7F021AF1C9AE0025F199 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7EFF1AF1C9AE0025F199 /* IQUIWindow+Hierarchy.m */; };
@@ -33,6 +30,9 @@
 		194B7F1A1AF1C9E80025F199 /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7F141AF1C9E80025F199 /* IQTitleBarButtonItem.m */; };
 		194B7F1B1AF1C9E80025F199 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7F161AF1C9E80025F199 /* IQToolbar.m */; };
 		194B7F1C1AF1C9E80025F199 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B7F181AF1C9E80025F199 /* IQUIView+IQKeyboardToolbar.m */; };
+		197726CF1B01F39E003373A6 /* SetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 197726CE1B01F39E003373A6 /* SetList.m */; };
+		197726D51B01F39F003373A6 /* Gigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 197726D41B01F39F003373A6 /* Gigs.m */; };
+		197726D81B01FF2E003373A6 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 197726D71B01FF2E003373A6 /* Song.m */; };
 		197811741AF7E0CF009D0EAC /* AddSongsToSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197811731AF7E0CF009D0EAC /* AddSongsToSetViewController.m */; };
 		19B19A201AFC8C1F0040F48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B19A1F1AFC8C1F0040F48C /* Main.storyboard */; };
 		19D5B08A1AF3621100B41A32 /* SongsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D5B0891AF3621100B41A32 /* SongsViewController.m */; };
@@ -50,8 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		191CA4EA1B0116550011D047 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		191CA4EB1B0116550011D047 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		191CA4ED1B01470C0011D047 /* GigSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigSetTableViewController.h; sourceTree = "<group>"; };
 		191CA4EE1B01470C0011D047 /* GigSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigSetTableViewController.m; sourceTree = "<group>"; };
 		194B7E9C1AF1C6C50025F199 /* GigMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,10 +73,6 @@
 		194B7ED11AF1C73D0025F199 /* GigsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigsTableViewController.m; sourceTree = "<group>"; };
 		194B7ED21AF1C73D0025F199 /* SetListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetListTableViewController.h; sourceTree = "<group>"; };
 		194B7ED31AF1C73D0025F199 /* SetListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetListTableViewController.m; sourceTree = "<group>"; };
-		194B7EF31AF1C8BD0025F199 /* Gigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gigs.h; sourceTree = "<group>"; };
-		194B7EF41AF1C8BD0025F199 /* Gigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gigs.m; sourceTree = "<group>"; };
-		194B7EF61AF1C8BD0025F199 /* SetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetList.h; sourceTree = "<group>"; };
-		194B7EF71AF1C8BD0025F199 /* SetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetList.m; sourceTree = "<group>"; };
 		194B7EFA1AF1C9AE0025F199 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		194B7EFB1AF1C9AE0025F199 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		194B7EFC1AF1C9AE0025F199 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
@@ -104,6 +98,12 @@
 		194B7F171AF1C9E80025F199 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		194B7F181AF1C9E80025F199 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		194B7F1D1AF1C9EF0025F199 /* KeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
+		197726CD1B01F39E003373A6 /* SetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetList.h; sourceTree = "<group>"; };
+		197726CE1B01F39E003373A6 /* SetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetList.m; sourceTree = "<group>"; };
+		197726D31B01F39F003373A6 /* Gigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gigs.h; sourceTree = "<group>"; };
+		197726D41B01F39F003373A6 /* Gigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gigs.m; sourceTree = "<group>"; };
+		197726D61B01FF2E003373A6 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		197726D71B01FF2E003373A6 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		197811721AF7E0CF009D0EAC /* AddSongsToSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSongsToSetViewController.h; sourceTree = "<group>"; };
 		197811731AF7E0CF009D0EAC /* AddSongsToSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSongsToSetViewController.m; sourceTree = "<group>"; };
 		19B19A1F1AFC8C1F0040F48C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -221,12 +221,12 @@
 		194B7EE61AF1C7610025F199 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				191CA4EA1B0116550011D047 /* Song.h */,
-				191CA4EB1B0116550011D047 /* Song.m */,
-				194B7EF61AF1C8BD0025F199 /* SetList.h */,
-				194B7EF71AF1C8BD0025F199 /* SetList.m */,
-				194B7EF31AF1C8BD0025F199 /* Gigs.h */,
-				194B7EF41AF1C8BD0025F199 /* Gigs.m */,
+				197726D61B01FF2E003373A6 /* Song.h */,
+				197726D71B01FF2E003373A6 /* Song.m */,
+				197726D31B01F39F003373A6 /* Gigs.h */,
+				197726D41B01F39F003373A6 /* Gigs.m */,
+				197726CD1B01F39E003373A6 /* SetList.h */,
+				197726CE1B01F39E003373A6 /* SetList.m */,
 				194B7EA61AF1C6C50025F199 /* GigMate.xcdatamodeld */,
 			);
 			name = Model;
@@ -416,11 +416,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191CA4EC1B0116550011D047 /* Song.m in Sources */,
+				197726D81B01FF2E003373A6 /* Song.m in Sources */,
 				197811741AF7E0CF009D0EAC /* AddSongsToSetViewController.m in Sources */,
 				194B7F1A1AF1C9E80025F199 /* IQTitleBarButtonItem.m in Sources */,
 				191CA4EF1B01470C0011D047 /* GigSetTableViewController.m in Sources */,
 				194B7ED61AF1C73D0025F199 /* AddGigViewController.m in Sources */,
+				197726D51B01F39F003373A6 /* Gigs.m in Sources */,
 				194B7F1B1AF1C9E80025F199 /* IQToolbar.m in Sources */,
 				194B7F0D1AF1C9D70025F199 /* IQSegmentedNextPrevious.m in Sources */,
 				194B7EA51AF1C6C50025F199 /* AppDelegate.m in Sources */,
@@ -428,14 +429,13 @@
 				194B7F1C1AF1C9E80025F199 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				194B7F001AF1C9AE0025F199 /* IQNSArray+Sort.m in Sources */,
 				194B7F091AF1C9CF0025F199 /* IQKeyboardManager.m in Sources */,
+				197726CF1B01F39E003373A6 /* SetList.m in Sources */,
 				194B7F191AF1C9E80025F199 /* IQBarButtonItem.m in Sources */,
 				194B7ED71AF1C73D0025F199 /* AddSetViewController.m in Sources */,
 				194B7ED91AF1C73D0025F199 /* GigsTableViewController.m in Sources */,
 				194B7F0A1AF1C9CF0025F199 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				194B7F011AF1C9AE0025F199 /* IQUIView+Hierarchy.m in Sources */,
-				194B7EF51AF1C8BD0025F199 /* Gigs.m in Sources */,
 				194B7ED81AF1C73D0025F199 /* AddSongViewController.m in Sources */,
-				194B7EF81AF1C8BD0025F199 /* SetList.m in Sources */,
 				194B7EA21AF1C6C50025F199 /* main.m in Sources */,
 				194B7F021AF1C9AE0025F199 /* IQUIWindow+Hierarchy.m in Sources */,
 				194B7F101AF1C9DE0025F199 /* IQTextView.m in Sources */,

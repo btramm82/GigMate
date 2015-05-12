@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) SetList *setList;
 @property (nonatomic, strong) NSMutableArray* songs;
+@property (nonatomic, strong) NSMutableArray *songsInSet;
 @property (weak, nonatomic) IBOutlet UITextField *setName;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

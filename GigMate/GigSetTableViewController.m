@@ -34,7 +34,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    self.songs = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+    
+    self.songs = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
     [self.tableView reloadData];
     
 }

@@ -39,10 +39,10 @@
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SetList"];
             self.setLists = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
             self.selectedSongs = self.songs;
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
         } else {
             [self.setName setText:[self.setList valueForKey:@"setName"]];
-            self.songs = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            self.songs = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
         }
     } else if (self.songs) {
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SetList"];
@@ -74,13 +74,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"songSetCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [self.tableView setEditing:YES];
     if (self.setList) {
         if (self.songs) {
             NSManagedObject *songs = [self.selectedSongs objectAtIndex:indexPath.row];
             [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
             [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
         } else {
-            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
             NSMutableArray *songs = [songsList objectAtIndex:indexPath.row];
             [cell.textLabel setText:[NSString stringWithFormat:@"%@",[songs valueForKey:@"songName"]]];
             [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ - %@ bpm",[songs valueForKey:@"artistName"], [songs valueForKey:@"bpm"]]];
@@ -93,9 +94,24 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSMutableArray *arrayToMove = [self.songs objectAtIndex:sourceIndexPath.row];
+    [self.songs removeObjectAtIndex:sourceIndexPath.row];
+    [self.songs insertObject:arrayToMove atIndex:destinationIndexPath.row];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.setList) {
@@ -112,9 +128,9 @@
             }
         } else {
             NSManagedObjectContext *context = [self managedObjectContext];
-            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            NSMutableArray *songsList = [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
             Song *song = [songsList objectAtIndex:indexPath.row];
-            [self.setList.songs removeObject:song];
+            [self.setList.songs delete:song];
             NSError *error = nil;
             if (![context save:&error]) {
                 NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
@@ -145,23 +161,23 @@
     if (self.setList) {
         if (self.songs) {
             [self.setList setValue:self.setName.text forKey:@"setName"];
-            [self.setList setValue:[NSSet setWithArray:self.songs] forKey:@"songs"];
+            [self.setList setValue:[NSOrderedSet orderedSetWithArray:self.songs] forKey:@"songs"];
         } else {
             [self.setList setValue:self.setName.text forKey:@"setName"];
-            [self.setList setValue:[NSSet setWithArray:self.songs] forKey:@"songs"];
+            [self.setList setValue:[NSOrderedSet orderedSetWithArray:self.songs] forKey:@"songs"];
         }
     } else {
         SetList *newSet = (SetList *)[NSEntityDescription insertNewObjectForEntityForName:@"SetList" inManagedObjectContext:context];
         [newSet setValue:self.setName.text forKey:@"setName"];
-        [newSet setValue:[NSSet setWithArray:self.selectedSongs] forKey:@"songs"];
-        
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        } else {
-            NSLog(@"Save Was Successful");
-        }
+        [newSet setValue:[NSOrderedSet orderedSetWithArray:self.selectedSongs] forKey:@"songs"];
+    }
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    } else {
+        NSLog(@"Save Was Successful");
     }
 }
 
@@ -175,10 +191,10 @@
             vc.selectedSongsFromSongList = self.selectedSongs;
         } else if (self.setList) {
             AddSongsToSetViewController *vc = ((UINavigationController *)segue.destinationViewController).viewControllers[0];
-            vc.selectedSongsFromSongList =  [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            vc.selectedSongsFromSongList =  [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
         } else {
             AddSongsToSetViewController *vc = ((UINavigationController *)segue.destinationViewController).viewControllers[0];
-            vc.selectedSongsFromSongList =  [NSMutableArray arrayWithArray:[[self.setList.songs allObjects] mutableCopy]];
+            vc.selectedSongsFromSongList =  [NSMutableArray arrayWithArray:[[self.setList.songs array] mutableCopy]];
         }
     }
 }
@@ -186,32 +202,4 @@
 -(IBAction)prepareForSongSetUnwind:(UIStoryboardSegue *)segue {
 }
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
